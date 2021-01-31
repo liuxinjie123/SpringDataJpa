@@ -1,4 +1,10 @@
 package com.spring.data.service.api;
 
-public interface Client {
+import com.spring.data.entity.Client;
+
+import java.util.List;
+
+public interface ClientService {
+    List<Client> list();
+
 }

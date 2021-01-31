@@ -1,4 +1,9 @@
 package com.spring.data.service.api;
 
-public class AuthorService {
+import com.spring.data.entity.Author;
+
+import java.util.List;
+
+public interface AuthorService {
+    List<Author> list();
 }
