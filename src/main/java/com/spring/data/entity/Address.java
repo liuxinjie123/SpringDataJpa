@@ -24,8 +24,9 @@ public class Address implements Serializable {
     /**
      * 可嵌入对象中的字段也可以使用@Column进行修饰
      */
-    @Column(nullable = false)
-    private String detailedAddress;
+    @Column(nullable = false, name = "addr_detailed")
+    private String addressDetail;
 
+    @Column(name = "zip_code")
     private String zipCode;
 }

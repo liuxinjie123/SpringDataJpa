@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,9 +17,10 @@ import java.util.Map;
 @Table(name = "client")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client implements Serializable {
+public class NewClient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     private String name;
@@ -26,12 +29,7 @@ public class Client implements Serializable {
      * 一个客户有多个地址
      */
     @ElementCollection
-    @MapKeyColumn(name = "addr_key")
-    @CollectionTable(name = "client_address")
-    @AttributeOverrides({
-            @AttributeOverride(name = "value.detailedAddress", column = @Column(name = "addr_detailed")),
-            @AttributeOverride(name = "value.zipCode", column = @Column(name = "zip_code"))
-    })
-    private Map<String, Address> addresses;
+    @CollectionTable(name = "client_address", joinColumns = {@JoinColumn(name = "client_id", referencedColumnName = "id")})
+    private List<Address> addressList;
 
 }

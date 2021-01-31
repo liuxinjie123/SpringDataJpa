@@ -28,8 +28,8 @@ public class Author implements Serializable {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "detailedAddress",column = @Column(name = "addr_detailed")),
-            @AttributeOverride(name = "zipCode",column = @Column(name = "addr_zip"))
+            @AttributeOverride(name = "detailedAddress", column = @Column(name = "addr_detailed")),
+            @AttributeOverride(name = "zipCode", column = @Column(name = "zip_code"))
     })
     private Address address;
 }

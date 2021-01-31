@@ -1,6 +1,7 @@
 package com.spring.data.controller;
 
 import com.spring.data.entity.Client;
+import com.spring.data.entity.NewClient;
 import com.spring.data.service.api.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,12 @@ public class ClientController {
     @GetMapping
     public Object list() {
         List<Client> list = clientService.list();
+        return list;
+    }
+
+    @GetMapping(value = "new")
+    public Object newList() {
+        List<NewClient> list = clientService.newList();
         return list;
     }
 
