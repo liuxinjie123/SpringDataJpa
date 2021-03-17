@@ -1,9 +1,9 @@
 package com.spring.data.service.api;
 
 import com.spring.data.entity.Author;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface AuthorService {
-    List<Author> list();
+    Page<Author> list(Pageable pageable);
 }
